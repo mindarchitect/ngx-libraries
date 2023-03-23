@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngx-avatar-lib',
+  selector: 'ngx-avatar',
   template: `
     <p>
       ngx-avatar-lib works!
