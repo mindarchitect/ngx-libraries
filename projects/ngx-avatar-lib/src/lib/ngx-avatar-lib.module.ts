@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgxAvatarLibComponent } from './ngx-avatar-lib.component';
+import { NgxAvatarLibComponent } from './components/ngx-avatar-lib/ngx-avatar-lib.component';
 
 @NgModule({
     declarations: [

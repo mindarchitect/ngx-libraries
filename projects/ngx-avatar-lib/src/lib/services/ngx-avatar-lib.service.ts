@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { LibConfigurationProvider } from "./ngx-avatar-lib.configuration";
+import { LibConfigurationProvider } from "../ngx-avatar-lib.configuration";
 
 @Injectable({
   providedIn: 'root'
