@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpParams} from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
@@ -9,9 +9,10 @@ import { LibConfigurationProvider } from "../ngx-avatar-lib.configuration";
   providedIn: 'root'
 })
 export class NgxAvatarLibService {
-    private readonly apiUrl: string;
+
+    private property: string = '';
     constructor(public configurationProvider: LibConfigurationProvider, private httpClient: HttpClient) {
-        this.apiUrl = configurationProvider.config.apiUrl;
+        this.property = configurationProvider.Configuration.property;
     }
 
     public uploadAvatarImage(userId: number, file: File): Observable<Object> {
@@ -24,11 +25,23 @@ export class NgxAvatarLibService {
             }
         });
 
-        return this.httpClient.post(this.apiUrl, formData, {
+        return this.httpClient.post(this.property, formData, {
             params: httpParams,
             reportProgress: true,
             observe: 'body',
             withCredentials: true
         });
+    }
+
+    public downloadAvatarImage(userId: number): Observable<HttpEvent<Blob>> {
+        const httpParams = new HttpParams()
+            .append('userId', userId);
+
+        return this.httpClient.get(this.property, {
+            params: httpParams,
+            reportProgress: true,
+            observe: 'events',
+            responseType: 'blob'
+        })
     }
 }
