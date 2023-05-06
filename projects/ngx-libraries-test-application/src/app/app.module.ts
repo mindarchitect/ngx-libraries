@@ -32,7 +32,7 @@ export function initApp(configurationStore: ConfigurationStore) {
   return () => {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
-        configurationStore.setConfiguration({ property: 'Test' });
+        configurationStore.setConfiguration({ property: 'Test2' });
         resolve();
       }, 2000);
     });
