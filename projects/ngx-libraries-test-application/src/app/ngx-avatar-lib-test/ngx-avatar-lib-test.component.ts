@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./ngx-avatar-lib-test.component.sass']
 })
 export class NgxAvatarLibTestComponent {
+    private imageSource: string = 'https://mdbcdn.b-cdn.net/img/new/avatars/9.webp';
+    get ImageSource(): string {
+        return this.imageSource;
+    }
 
+    set ImageSource(value: string) {
+        this.imageSource = value;
+    }
+
+    imageSourceUpdated(event: any) {
+    }
 }

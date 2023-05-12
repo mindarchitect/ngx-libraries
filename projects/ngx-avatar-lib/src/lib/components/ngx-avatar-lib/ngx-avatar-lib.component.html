@@ -1,4 +1,13 @@
-<p>
-    <img class="rounded-circle shadow" alt="avatar" src="{{AvatarImageSource}}" />
-    <button type="button" class="btn btn-outline-primary">Edit</button>
-</p>
+<div id="avatar-container">
+    <img id="avatar-photo" #avatarImage class="avatar-photo"
+         [src]="imageSource && imageSource !== '' ? imageSource : ''" (mouseenter)="ShowAddImageOverlay = true" alt="Avatar image">
+
+    <div *ngIf="ShowAddImageOverlay" id="add-photo-overlay" class="avatar-photo" (mouseleave)="ShowAddImageOverlay = false">
+        <button id="add-avatar-photo-button" class="center-position-absolute" mat-icon-button (click)="openFileInput(fileInput)">
+            <mat-icon svgIcon="person"></mat-icon>
+        </button>
+        <mat-icon id="remove-avatar-photo-button" svgIcon="close" *ngIf="imageSource && imageSource !== ''" (click)="removeImage()"
+                  matTooltip="Remove image"></mat-icon>
+    </div>
+    <input #fileInput type="file" (change)="addImage($event)" name="avatar" accept="image/png, image/jpeg" style="display:none;">
+</div>

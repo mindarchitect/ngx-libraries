@@ -2,27 +2,41 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NgxAvatarLibComponent } from './components/ngx-avatar-lib/ngx-avatar-lib.component';
 import { HttpClientModule } from "@angular/common/http";
 
-import { DefaultLibConfiguration, LibConfiguration, LibConfigurationProvider } from "./ngx-avatar-lib.configuration";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { CommonModule } from "@angular/common";
+import { ConfigurationProvider } from "./configuration/configuration.provider";
+import { NgxAvatarLibConfigurationProvider } from "./configuration/ngx-avatar-lib-configuration.provider";
+import { DefaultNgxAvatarLibConfigurationProvider } from "./configuration/default-ngx-avatar-lib-configuration-provider";
+import {BrowserModule} from "@angular/platform-browser";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
         NgxAvatarLibComponent
     ],
     imports: [
-        HttpClientModule
+        BrowserModule,
+        BrowserAnimationsModule,
+        CommonModule,
+        HttpClientModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTooltipModule
     ],
     exports: [
         NgxAvatarLibComponent
     ]
 })
 export class NgxAvatarLibModule {
-    static forRoot(libConfiguration: LibConfiguration = {}): ModuleWithProviders<NgxAvatarLibModule> {
+    static forRoot(сonfigurationProvider: ConfigurationProvider = {}): ModuleWithProviders<NgxAvatarLibModule> {
         return {
             ngModule: NgxAvatarLibModule,
             providers: [
-                libConfiguration.configuration || {
-                    provide: LibConfigurationProvider,
-                    useClass: DefaultLibConfiguration
+                сonfigurationProvider.provider || {
+                    provide: NgxAvatarLibConfigurationProvider,
+                    useClass: DefaultNgxAvatarLibConfigurationProvider
                 }
             ]
         };

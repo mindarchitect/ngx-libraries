@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {NgxAvatarLibService} from "../../services/ngx-avatar-lib.service";
 
 @Component({
@@ -7,19 +7,59 @@ import {NgxAvatarLibService} from "../../services/ngx-avatar-lib.service";
     styleUrls: ['./ngx-avatar-lib.component.sass']
 })
 export class NgxAvatarLibComponent implements OnInit {
-    private avatarImageSource: string = 'https://mdbcdn.b-cdn.net/img/new/avatars/9.webp';
+    @ViewChild('avatarImage', { static: true }) avatarImageElement: ElementRef | undefined;
+
+    @Input() imageSource: string | undefined;
+    @Output() imageSourceUpdated: EventEmitter<string> = new EventEmitter<string>();
+
+    private showAddImageOverlay: boolean = false;
+
     constructor(private readonly ngxAvatarLibService: NgxAvatarLibService) {
     }
 
-    get AvatarImageSource() { return this.avatarImageSource; }
+    get ImageSource() {
+        return this.imageSource;
+    }
+
+    get ShowAddImageOverlay(): boolean {
+        return this.showAddImageOverlay;
+    }
+
+    set ShowAddImageOverlay(value: boolean) {
+        this.showAddImageOverlay = value;
+    }
 
     ngOnInit(): void {
-        this.ngxAvatarLibService.downloadAvatarImage(1)
-        .subscribe({
-            next: (httpResponse: any) => {
-            },
-            error: (httpErrorResponse: any) => {
-            }}
-        );
+    }
+
+    addImage(event: any) {
+        const fileReader: FileReader = new FileReader();
+
+        fileReader.onload = () => {
+            if (this.avatarImageElement) {
+                this.avatarImageElement.nativeElement.src = fileReader.result;
+            }
+        };
+
+        fileReader.readAsDataURL(event.target.files[0]);
+
+        // save the image in the back end database
+        // and get the photo url
+        this.imageSource = event.target.files[0];
+        this.imageSourceUpdated.emit(this.imageSource);
+    }
+
+    openFileInput(fileInput: any){
+        fileInput.click()
+        this.showAddImageOverlay = false
+    }
+
+    removeImage() {
+        if (this.avatarImageElement) {
+            this.avatarImageElement.nativeElement.src = '';
+        }
+
+        this.imageSource = '';
+        this.imageSourceUpdated.emit(this.imageSource);
     }
 }
