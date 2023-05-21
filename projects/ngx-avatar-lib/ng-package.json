@@ -3,8 +3,5 @@
   "dest": "../../dist/ngx-avatar-lib",
   "lib": {
     "entryFile": "src/public-api.ts"
-  },
-  "assets": [
-    "./scss"
-  ]
+  }
 }
