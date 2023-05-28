@@ -1,5 +1,5 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {NgxAvatarLibService} from "../../services/ngx-avatar-lib.service";
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NgxAvatarLibService } from "../../services/ngx-avatar-lib.service";
 
 @Component({
     selector: 'ngx-avatar',
@@ -7,18 +7,25 @@ import {NgxAvatarLibService} from "../../services/ngx-avatar-lib.service";
     styleUrls: ['./ngx-avatar-lib.component.sass']
 })
 export class NgxAvatarLibComponent implements OnInit {
+    private defaultAvatarImageFullPath: string;
+
     @ViewChild('avatarImage', { static: true }) avatarImageElement: ElementRef | undefined;
 
     @Input() imageSource: string | undefined;
-    @Output() imageSourceUpdated: EventEmitter<string> = new EventEmitter<string>();
+    @Output() imageSourceUpdated: EventEmitter<File> = new EventEmitter<File>();
 
     private showAddImageOverlay: boolean = false;
 
     constructor(private readonly ngxAvatarLibService: NgxAvatarLibService) {
+        this.defaultAvatarImageFullPath =  ngxAvatarLibService.DefaultAvatarImageFullPath;
     }
 
     get ImageSource() {
         return this.imageSource;
+    }
+
+    set ImageSource(imageSource: string | undefined) {
+        this.imageSource = imageSource;
     }
 
     get ShowAddImageOverlay(): boolean {
@@ -41,12 +48,12 @@ export class NgxAvatarLibComponent implements OnInit {
             }
         };
 
-        fileReader.readAsDataURL(event.target.files[0]);
+        let imageFile: File = event.target.files[0];
 
-        // save the image in the back end database
-        // and get the photo url
-        this.imageSource = event.target.files[0];
-        this.imageSourceUpdated.emit(this.imageSource);
+        fileReader.readAsDataURL(imageFile);
+
+        this.imageSource = imageFile.toString();
+        this.imageSourceUpdated.emit(imageFile);
     }
 
     openFileInput(fileInput: any){
@@ -56,10 +63,10 @@ export class NgxAvatarLibComponent implements OnInit {
 
     removeImage() {
         if (this.avatarImageElement) {
-            this.avatarImageElement.nativeElement.src = '';
+            this.avatarImageElement.nativeElement.src = this.defaultAvatarImageFullPath;
         }
 
-        this.imageSource = '';
-        this.imageSourceUpdated.emit(this.imageSource);
+        this.imageSource = this.defaultAvatarImageFullPath;
+        this.imageSourceUpdated.emit(undefined);
     }
 }

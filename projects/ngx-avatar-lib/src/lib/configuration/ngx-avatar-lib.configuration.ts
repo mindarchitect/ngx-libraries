@@ -1,3 +1,4 @@
 export interface NgxAvatarLibConfiguration {
-    property: string;
+    defaultAvatarImagePath: string;
+    defaultAvatarImageFileName: string;
 }

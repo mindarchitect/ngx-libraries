@@ -60,7 +60,12 @@
             "inlineStyleLanguage": "sass",
             "assets": [
               "projects/ngx-libraries-test-application/src/favicon.ico",
-              "projects/ngx-libraries-test-application/src/assets"
+              "projects/ngx-libraries-test-application/src/assets",
+              {
+                  "glob": "**/*",
+                  "input": "./node_modules/ngx-avatar-lib/assets",
+                  "output": "./assets/ngx-avatar-lib"
+              }
             ],
             "styles": [
               "projects/ngx-libraries-test-application/src/styles.sass"

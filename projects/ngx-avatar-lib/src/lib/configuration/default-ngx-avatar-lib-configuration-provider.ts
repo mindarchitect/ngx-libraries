@@ -5,6 +5,9 @@ import { NgxAvatarLibConfigurationProvider } from "./ngx-avatar-lib-configuratio
 @Injectable({ providedIn: 'root' })
 export class DefaultNgxAvatarLibConfigurationProvider implements NgxAvatarLibConfigurationProvider {
     get Configuration(): NgxAvatarLibConfiguration {
-        return { property: '' };
+        return {
+            defaultAvatarImagePath: '/assets/',
+            defaultAvatarImageFileName: 'avatar.jpg'
+        };
     }
 }

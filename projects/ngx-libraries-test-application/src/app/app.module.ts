@@ -1,4 +1,4 @@
-import {NgModule, APP_INITIALIZER, Injectable} from '@angular/core';
+import { NgModule, APP_INITIALIZER, Injectable} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +32,11 @@ export function initApp(configurationStore: ConfigurationStore) {
     return () => {
         return new Promise<void>((resolve) => {
             setTimeout(() => {
-                configurationStore.setConfiguration({ property: 'Test' });
+                configurationStore.setConfiguration(
+                    {
+                        defaultAvatarImagePath: '/assets/libraries/ngx-avatar-lib/',
+                        defaultAvatarImageFileName: 'avatar.png'
+                    });
                 resolve();
             }, 2000);
         });
