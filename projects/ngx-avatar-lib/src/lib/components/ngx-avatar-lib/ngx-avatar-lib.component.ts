@@ -7,7 +7,7 @@ import { NgxAvatarLibService } from "../../services/ngx-avatar-lib.service";
     styleUrls: ['./ngx-avatar-lib.component.sass']
 })
 export class NgxAvatarLibComponent implements OnInit {
-    private defaultAvatarImageFullPath: string;
+    private readonly defaultAvatarImageFullPath: string;
 
     @ViewChild('avatarImage', { static: true }) avatarImageElement: ElementRef | undefined;
 
