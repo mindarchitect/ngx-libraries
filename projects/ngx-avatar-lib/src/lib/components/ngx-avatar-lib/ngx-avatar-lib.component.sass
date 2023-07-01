@@ -21,6 +21,7 @@
 
 .avatar-image-button
   position: absolute
+  transform: scale(1.5)
   cursor: pointer
   z-index: 3
 
@@ -30,11 +31,7 @@
 
 .remove-avatar-image-button
   @extend .avatar-image-button
-  width: 20px
-  height: 20px
   font-size: 20px
-  top: 5%
-  right: 5%
   color: white
   background-color: rgba(0, 0, 0, 0.57)
   border-radius: 12px
@@ -42,9 +39,15 @@
 .remove-avatar-image-button:hover
   background-color: #e74c3c
 
-.center-position-absolute
+.add-avatar-image-position
   position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
+  top: 75%
+  left: 33%
 
+.remove-avatar-image-position
+  position: absolute
+  top: 77%
+  left: 55%
+
+.avatar-file-input
+  display: none
