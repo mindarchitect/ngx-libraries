@@ -1,6 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NgxAvatarLibComponent } from './components/ngx-avatar-lib/ngx-avatar-lib.component';
-import { HttpClientModule } from "@angular/common/http";
 
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
@@ -17,8 +16,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     imports: [
         CommonModule,
         BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule
+        BrowserAnimationsModule
     ],
     exports: [
         NgxAvatarLibComponent

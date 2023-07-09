@@ -4,7 +4,7 @@
     <img #avatarImage class="avatar-image" [src]="ImageSource" (mouseenter)="ShowAddImageOverlay = true">
     <div *ngIf="ShowAddImageOverlay" class="avatar-image-overlay" (mouseleave)="ShowAddImageOverlay = false">
         <i class="add-avatar-image-button material-icons add-avatar-image-position" (click)="openFileInput(fileInput)">add_a_photo</i>
-        <i class="remove-avatar-image-button material-icons remove-avatar-image-position" *ngIf="ImageSource" (click)="removeImage()">delete_forever</i>
+        <i class="remove-avatar-image-button material-icons remove-avatar-image-position" *ngIf="ImageSource" (click)="removeImage(fileInput)">delete_forever</i>
     </div>
     <input #fileInput type="file" (change)="addImage($event)" accept="image/png, image/jpeg" class="avatar-file-input">
 </div>

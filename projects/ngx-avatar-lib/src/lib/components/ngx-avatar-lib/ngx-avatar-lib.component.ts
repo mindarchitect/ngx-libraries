@@ -8,16 +8,52 @@ import { NgxAvatarLibService } from "../../services/ngx-avatar-lib.service";
 })
 export class NgxAvatarLibComponent implements OnInit {
     private readonly defaultAvatarImageFullPath: string;
+    private showAddImageOverlay: boolean = false;
+
+    private readonly fileReader: FileReader;
 
     @ViewChild('avatarImage', { static: true }) avatarImageElement: ElementRef | undefined;
 
     @Input() imageSource: string | undefined;
     @Output() imageSourceUpdated: EventEmitter<File> = new EventEmitter<File>();
 
-    private showAddImageOverlay: boolean = false;
-
     constructor(private readonly ngxAvatarLibService: NgxAvatarLibService) {
         this.defaultAvatarImageFullPath =  ngxAvatarLibService.DefaultAvatarImageFullPath;
+        this.fileReader = new FileReader();
+
+        this.fileReader.onload = (): void => {
+            if (this.avatarImageElement) {
+                this.avatarImageElement.nativeElement.src = this.fileReader.result;
+            }
+        };
+    }
+
+    ngOnInit(): void {
+    }
+
+    public addImage(event: any): void {
+        let imageFile: File = event.target.files[0];
+
+        this.fileReader.readAsDataURL(imageFile);
+
+        this.imageSource = imageFile.toString();
+        this.imageSourceUpdated.emit(imageFile);
+    }
+
+    public openFileInput(fileInput: any): void{
+        fileInput.click()
+        this.showAddImageOverlay = false
+    }
+
+    public removeImage(fileInput: any): void {
+        fileInput.value = null;
+
+        if (this.avatarImageElement) {
+            this.avatarImageElement.nativeElement.src = this.defaultAvatarImageFullPath;
+        }
+
+        this.imageSource = this.defaultAvatarImageFullPath;
+        this.imageSourceUpdated.emit(undefined);
     }
 
     get ImageSource() {
@@ -34,39 +70,5 @@ export class NgxAvatarLibComponent implements OnInit {
 
     set ShowAddImageOverlay(value: boolean) {
         this.showAddImageOverlay = value;
-    }
-
-    ngOnInit(): void {
-    }
-
-    addImage(event: any) {
-        const fileReader: FileReader = new FileReader();
-
-        fileReader.onload = () => {
-            if (this.avatarImageElement) {
-                this.avatarImageElement.nativeElement.src = fileReader.result;
-            }
-        };
-
-        let imageFile: File = event.target.files[0];
-
-        fileReader.readAsDataURL(imageFile);
-
-        this.imageSource = imageFile.toString();
-        this.imageSourceUpdated.emit(imageFile);
-    }
-
-    openFileInput(fileInput: any){
-        fileInput.click()
-        this.showAddImageOverlay = false
-    }
-
-    removeImage() {
-        if (this.avatarImageElement) {
-            this.avatarImageElement.nativeElement.src = this.defaultAvatarImageFullPath;
-        }
-
-        this.imageSource = this.defaultAvatarImageFullPath;
-        this.imageSourceUpdated.emit(undefined);
     }
 }

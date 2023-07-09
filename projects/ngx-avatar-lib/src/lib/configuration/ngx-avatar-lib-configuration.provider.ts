@@ -1,4 +1,4 @@
-import { Injectable, Provider } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { NgxAvatarLibConfiguration } from "./ngx-avatar-lib.configuration";
 
 @Injectable({ providedIn: 'root' })
