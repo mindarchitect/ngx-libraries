@@ -7,7 +7,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { ConfigurationProvider } from "./configuration/configuration.provider";
 import { NgxAvatarLibConfigurationProvider } from "./configuration/ngx-avatar-lib-configuration.provider";
 import { DefaultNgxAvatarLibConfigurationProvider } from "./configuration/default-ngx-avatar-lib-configuration-provider";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -15,8 +14,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ],
     imports: [
         CommonModule,
-        BrowserModule,
-        BrowserAnimationsModule
+        BrowserModule
     ],
     exports: [
         NgxAvatarLibComponent

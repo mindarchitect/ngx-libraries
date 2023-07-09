@@ -6,7 +6,7 @@ import {NgxAvatarLibConfigurationProvider} from "../configuration/ngx-avatar-lib
     providedIn: 'root'
 })
 export class NgxAvatarLibService {
-    private defaultAvatarImageFullPath: string = '';
+    private readonly defaultAvatarImageFullPath: string;
 
     constructor(public configurationProvider: NgxAvatarLibConfigurationProvider) {
         this.defaultAvatarImageFullPath = configurationProvider.Configuration.defaultAvatarImagePath + configurationProvider.Configuration.defaultAvatarImageFileName;
