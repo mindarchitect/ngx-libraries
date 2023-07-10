@@ -31,7 +31,36 @@ export class NgxAvatarLibComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public addImage(event: any): void {
+    public resetImage(): void {
+        if (this.avatarImageElement) {
+            this.avatarImageElement.nativeElement.src = this.defaultAvatarImageFullPath;
+        }
+
+        this.imageSource = this.defaultAvatarImageFullPath;
+    }
+
+    protected get ImageSource() {
+        return this.imageSource;
+    }
+
+    protected set ImageSource(imageSource: string | undefined) {
+        this.imageSource = imageSource;
+    }
+
+    protected get ShowAddImageOverlay(): boolean {
+        return this.showAddImageOverlay;
+    }
+
+    protected set ShowAddImageOverlay(value: boolean) {
+        this.showAddImageOverlay = value;
+    }
+
+    protected openFileInput(fileInput: any): void{
+        fileInput.click()
+        this.showAddImageOverlay = false
+    }
+
+    protected addImage(event: any): void {
         let imageFile: File = event.target.files[0];
 
         this.fileReader.readAsDataURL(imageFile);
@@ -40,12 +69,7 @@ export class NgxAvatarLibComponent implements OnInit {
         this.imageSourceUpdated.emit(imageFile);
     }
 
-    public openFileInput(fileInput: any): void{
-        fileInput.click()
-        this.showAddImageOverlay = false
-    }
-
-    public removeImage(fileInput: any): void {
+    protected removeImage(fileInput: any): void {
         fileInput.value = null;
 
         if (this.avatarImageElement) {
@@ -54,21 +78,5 @@ export class NgxAvatarLibComponent implements OnInit {
 
         this.imageSource = this.defaultAvatarImageFullPath;
         this.imageSourceUpdated.emit(undefined);
-    }
-
-    get ImageSource() {
-        return this.imageSource;
-    }
-
-    set ImageSource(imageSource: string | undefined) {
-        this.imageSource = imageSource;
-    }
-
-    get ShowAddImageOverlay(): boolean {
-        return this.showAddImageOverlay;
-    }
-
-    set ShowAddImageOverlay(value: boolean) {
-        this.showAddImageOverlay = value;
     }
 }

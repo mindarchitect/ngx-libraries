@@ -89,10 +89,18 @@ export class ExampleNgxAvatarLibConfigurationProvider implements NgxAvatarLibCon
 
 ## API
 
-| option                      |    bind    |  type  | default | description                         |
-|:----------------------------| :--------: |:------:| :-----: |:------------------------------------|
-| imageSource                 | `Input() ` | string |    -    | Image source (string or byte array) |
-| imageSourceUpdated          |  Output()  |  File  |    -    | Emits image source changing event   |
+Properties and events:
+
+| option             |    bind    |  type  | default | description                         |
+|:-------------------|:----------:|:------:| :-----: |:------------------------------------|
+| imageSource        | `Input() ` | string |    -    | Image source (string or byte array) |
+| imageSourceUpdated |  Output()  |  File  |    -    | Emits image source changing event   |
+
+Methods:
+
+| function           |    bind    |  type  | default | description                         |
+|:-------------------|:----------:|:------:| :-----: |:------------------------------------|
+| resetImage()       |     -      |   -    |    -    | Performs avatar image reset         |
 
 ---
 
