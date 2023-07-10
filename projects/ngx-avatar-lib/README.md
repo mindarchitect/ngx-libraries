@@ -99,7 +99,7 @@ export class ExampleNgxAvatarLibConfigurationProvider implements NgxAvatarLibCon
 
 ## Usage
 
-add the `@angular-material-extensions/password-strength` element to your template:
+add the `@mindarchitect-ngx-libraries/ngx-avatar-lib` element to your template:
 
 ```html
 <ngx-avatar imageSource="{{ImageSource}}" (imageSourceUpdated)="imageSourceUpdated($event)"></ngx-avatar>
