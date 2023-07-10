@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="ngx-libraries logo" height="256px" width="256px" style="text-align: center;" src="../../assets/logo/512x512.png">
+  <img alt="ngx-libraries logo" height="256px" width="256px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/logo/512x512.png">
 </p>
 
 # @mindarchitect-ngx-libraries/ngx-avatar-lib - Avatar library
@@ -13,7 +13,6 @@
 - [Installation](#installation)
 - [API](#api)
 - [Usage](#usage)
-- [Development](#development)
 - [Support](#support)
 - [License](#license)
 
