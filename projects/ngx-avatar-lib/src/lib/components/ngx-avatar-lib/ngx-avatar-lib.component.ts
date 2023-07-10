@@ -12,7 +12,7 @@ export class NgxAvatarLibComponent implements OnInit {
 
     private readonly fileReader: FileReader;
 
-    @ViewChild('avatarImage', { static: true }) avatarImageElement: ElementRef | undefined;
+    @ViewChild('avatarImage', { static: true }) private avatarImageElement: ElementRef | undefined;
 
     @Input() imageSource: string | undefined;
     @Output() imageSourceUpdated: EventEmitter<File> = new EventEmitter<File>();
