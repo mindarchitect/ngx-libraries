@@ -99,9 +99,9 @@ Properties and events:
 <br/>
 Methods:
 
-| function                      | bind  |  type  | default | description                                                                      |
-|:------------------------------|:-----:|:------:| :-----: |:---------------------------------------------------------------------------------|
-| setImage(imageSource: string) |   -   |   -    |    -    | Sets avatar image source. If image source is null or undefined, default is used. |
+| function                                       | bind  |  type  | default | description                                                                  |
+|:-----------------------------------------------|:-----:|:------:| :-----: |:-----------------------------------------------------------------------------|
+| setImage(imageSource: string ArrayBuffer null) |   -   |   -    |    -    | Sets avatar image source. If image source is null or empty, default is used. |
 
 ---
 

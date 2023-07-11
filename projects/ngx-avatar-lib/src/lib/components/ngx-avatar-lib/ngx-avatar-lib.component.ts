@@ -14,7 +14,7 @@ export class NgxAvatarLibComponent implements OnInit {
 
     @ViewChild('avatarImage', { static: true }) private avatarImageElement: ElementRef | undefined;
 
-    @Input() imageSource: string | undefined;
+    @Input() imageSource: string | ArrayBuffer | null = null;
     @Output() imageSourceUpdated: EventEmitter<File> = new EventEmitter<File>();
 
     constructor(private readonly ngxAvatarLibService: NgxAvatarLibService) {
@@ -31,7 +31,7 @@ export class NgxAvatarLibComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public setImage(imageSource: string): void {
+    public setImage(imageSource: string | ArrayBuffer | null): void {
         if (!imageSource) {
             imageSource = this.defaultAvatarImageFullPath;
         }
@@ -43,11 +43,11 @@ export class NgxAvatarLibComponent implements OnInit {
         this.imageSource = imageSource;
     }
 
-    protected get ImageSource() {
+    protected get ImageSource(): string | ArrayBuffer | null {
         return this.imageSource;
     }
 
-    protected set ImageSource(imageSource: string | undefined) {
+    protected set ImageSource(imageSource: string | ArrayBuffer | null) {
         this.imageSource = imageSource;
     }
 
