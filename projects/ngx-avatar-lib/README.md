@@ -21,7 +21,7 @@
 
 - `<ngx-avatar></ngx-avatar>` is designed and developed to select and display user avatar and bind avatar image change event handler.
 
-- Avatar component:
+- Avatar component
     <p>  
         <img alt="ngx-avatar-lib" height="266px" width="260px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/images/1.png">
     </p>
@@ -116,10 +116,11 @@ Types:
 
 Properties and events:
 
-|      Property      |    Bind     |          Type          |           Default            | Description                        |
-|:------------------:|:-----------:|:----------------------:|:----------------------------:|:-----------------------------------|
-|    imageSource     |  `Input()`  | `FileReaderResultType` |             null             | Image source                       |
-| imageSourceUpdated | `Output()`  |      File or null      | EventEmitter<File or null>   | Emits image source changing event  |
+|      Property      |    Bind    |          Type          |          Default           | Description                        |
+|:------------------:|:----------:|:----------------------:|:--------------------------:|:-----------------------------------|
+|    imageSource     | `Input()`  | `FileReaderResultType` |            null            | Image source                       |
+| imageSourceUpdated | `Output()` |      File or null      | EventEmitter<File or null> | Emits image source changing event  |
+
 
 <br/>
 <br/>
