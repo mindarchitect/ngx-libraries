@@ -68,9 +68,14 @@
               }
             ],
             "styles": [
-              "projects/ngx-libraries-test-application/src/styles.sass"
+              "projects/ngx-libraries-test-application/src/styles.sass",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/@angular/cdk/overlay-prebuilt.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

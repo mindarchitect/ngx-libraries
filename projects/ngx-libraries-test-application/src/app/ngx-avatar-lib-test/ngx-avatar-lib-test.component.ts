@@ -7,7 +7,7 @@ import {NgxAvatarLibComponent} from "@mindarchitect-ngx-libraries/ngx-avatar-lib
   styleUrls: ['./ngx-avatar-lib-test.component.sass']
 })
 export class NgxAvatarLibTestComponent {
-    private imageSource: string = '/assets/libraries/ngx-avatar-lib/ilona.jpg';
+    private imageSource: string = '/assets/libraries/ngx-avatar-lib/512x512.png';
 
     @ViewChild('avatar') ngxAvatarLibComponent!: NgxAvatarLibComponent;
 

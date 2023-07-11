@@ -35,7 +35,7 @@ export function initApp(configurationStore: ConfigurationStore) {
                 configurationStore.setConfiguration(
                     {
                         defaultAvatarImagePath: '/assets/libraries/ngx-avatar-lib/',
-                        defaultAvatarImageFileName: 'avatar.png'
+                        defaultAvatarImageFileName: 'avatar.jpg'
                     });
                 resolve();
             }, 2000);

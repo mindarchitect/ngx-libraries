@@ -19,7 +19,7 @@
     "@angular/platform-browser": "^16.1.4",
     "@angular/platform-browser-dynamic": "^16.1.4",
     "@angular/router": "^16.1.4",
-    "@mindarchitect-ngx-libraries/ngx-avatar-lib": "^0.0.24",
+    "@mindarchitect-ngx-libraries/ngx-avatar-lib": "^0.0.25",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.0",
     "zone.js": "~0.13.1"
