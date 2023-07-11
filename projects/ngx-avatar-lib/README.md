@@ -91,7 +91,7 @@ export class ExampleNgxAvatarLibConfigurationProvider implements NgxAvatarLibCon
 
 Properties and events:
 
-| option             |    bind    |             type              | default | description                         |
+| property           |    bind    |             type              | default | description                         |
 |:-------------------|:----------:|:-----------------------------:| :-----: |:------------------------------------|
 | imageSource        | `Input() ` | string or ArrayBuffer or null |    -    | Image source (string or byte array) |
 | imageSourceUpdated |  Output()  |         File or null          |    -    | Emits image source changing event   |

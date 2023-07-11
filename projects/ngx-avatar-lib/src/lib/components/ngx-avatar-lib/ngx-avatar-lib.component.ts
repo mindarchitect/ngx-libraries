@@ -1,6 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgxAvatarLibService } from "../../services/ngx-avatar-lib.service";
 
+type FileReaderResultType = string | ArrayBuffer | null;
+
 @Component({
     selector: 'ngx-avatar',
     templateUrl: './ngx-avatar-lib.component.html',
@@ -14,7 +16,7 @@ export class NgxAvatarLibComponent implements OnInit {
 
     @ViewChild('avatarImage', { static: true }) private avatarImageElement: ElementRef | undefined;
 
-    @Input() imageSource: string | ArrayBuffer | null = null;
+    @Input() imageSource: FileReaderResultType = null;
     @Output() imageSourceUpdated: EventEmitter<File | null> = new EventEmitter<File | null>();
 
     constructor(private readonly ngxAvatarLibService: NgxAvatarLibService) {
@@ -23,8 +25,10 @@ export class NgxAvatarLibComponent implements OnInit {
 
         this.fileReader.onload = (): void => {
             if (this.avatarImageElement) {
-                this.avatarImageElement.nativeElement.src = this.fileReader.result;
-                this.imageSource = this.fileReader.result;
+                const fileReaderResult: FileReaderResultType = this.fileReader.result;
+
+                this.avatarImageElement.nativeElement.src = fileReaderResult;
+                this.imageSource = fileReaderResult;
             }
         };
     }
@@ -32,7 +36,7 @@ export class NgxAvatarLibComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public setImage(imageSource: string | ArrayBuffer | null): void {
+    public setImage(imageSource: FileReaderResultType): void {
         if (!imageSource) {
             imageSource = this.defaultAvatarImageFullPath;
         }
@@ -44,11 +48,11 @@ export class NgxAvatarLibComponent implements OnInit {
         this.imageSource = imageSource;
     }
 
-    protected get ImageSource(): string | ArrayBuffer | null {
+    protected get ImageSource(): FileReaderResultType {
         return this.imageSource;
     }
 
-    protected set ImageSource(imageSource: string | ArrayBuffer | null) {
+    protected set ImageSource(imageSource: FileReaderResultType) {
         this.imageSource = imageSource;
     }
 

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {NgxAvatarLibComponent} from "@mindarchitect-ngx-libraries/ngx-avatar-lib";
 
 @Component({
   selector: 'app-ngx-avatar-lib-test',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class NgxAvatarLibTestComponent {
     private imageSource: string = '/assets/libraries/ngx-avatar-lib/ilona.jpg';
+
+    @ViewChild('avatar') ngxAvatarLibComponent!: NgxAvatarLibComponent;
+
     get ImageSource(): string {
         return this.imageSource;
     }
@@ -16,5 +20,6 @@ export class NgxAvatarLibTestComponent {
     }
 
     imageSourceUpdated(event: any) {
+        this.ngxAvatarLibComponent.setImage(null);
     }
 }
