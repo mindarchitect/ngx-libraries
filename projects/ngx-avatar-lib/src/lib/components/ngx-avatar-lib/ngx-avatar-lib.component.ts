@@ -15,7 +15,7 @@ export class NgxAvatarLibComponent implements OnInit {
     @ViewChild('avatarImage', { static: true }) private avatarImageElement: ElementRef | undefined;
 
     @Input() imageSource: string | ArrayBuffer | null = null;
-    @Output() imageSourceUpdated: EventEmitter<File> = new EventEmitter<File>();
+    @Output() imageSourceUpdated: EventEmitter<File | null> = new EventEmitter<File | null>();
 
     constructor(private readonly ngxAvatarLibService: NgxAvatarLibService) {
         this.defaultAvatarImageFullPath =  ngxAvatarLibService.DefaultAvatarImageFullPath;
@@ -24,6 +24,7 @@ export class NgxAvatarLibComponent implements OnInit {
         this.fileReader.onload = (): void => {
             if (this.avatarImageElement) {
                 this.avatarImageElement.nativeElement.src = this.fileReader.result;
+                this.imageSource = this.fileReader.result;
             }
         };
     }
@@ -68,8 +69,6 @@ export class NgxAvatarLibComponent implements OnInit {
         let imageFile: File = event.target.files[0];
 
         this.fileReader.readAsDataURL(imageFile);
-
-        this.imageSource = imageFile.toString();
         this.imageSourceUpdated.emit(imageFile);
     }
 
@@ -81,6 +80,6 @@ export class NgxAvatarLibComponent implements OnInit {
         }
 
         this.imageSource = this.defaultAvatarImageFullPath;
-        this.imageSourceUpdated.emit(undefined);
+        this.imageSourceUpdated.emit(null);
     }
 }
