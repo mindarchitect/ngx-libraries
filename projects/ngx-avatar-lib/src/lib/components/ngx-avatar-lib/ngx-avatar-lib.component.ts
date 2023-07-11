@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgxAvatarLibService } from "../../services/ngx-avatar-lib.service";
 
-type FileReaderResultType = string | ArrayBuffer | null;
+export type FileReaderResultType = string | ArrayBuffer | null;
 
 @Component({
     selector: 'ngx-avatar',
