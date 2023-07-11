@@ -31,12 +31,16 @@ export class NgxAvatarLibComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public resetImage(): void {
-        if (this.avatarImageElement) {
-            this.avatarImageElement.nativeElement.src = this.defaultAvatarImageFullPath;
+    public setImage(imageSource: string): void {
+        if (!imageSource) {
+            imageSource = this.defaultAvatarImageFullPath;
         }
 
-        this.imageSource = this.defaultAvatarImageFullPath;
+        if (this.avatarImageElement) {
+            this.avatarImageElement.nativeElement.src = imageSource;
+        }
+
+        this.imageSource = imageSource;
     }
 
     protected get ImageSource() {
