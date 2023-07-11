@@ -110,15 +110,17 @@ Types:
 |          Type           |                                 Description                                  |
 |:-----------------------:|:----------------------------------------------------------------------------:|
 | FileReaderResultType    | File reader result helper intersection type (string or ArrayBuffer or null)  |
+
 <br/>
 <br/>
 
 Properties and events:
 
-|      Property      |   Bind   |         Type          |           Default            | Description                        |
-|:------------------:|:--------:|:---------------------:|:----------------------------:|:-----------------------------------|
-|    imageSource     | Input()  | FileReaderResultType  |             null             | Image source                       |
-| imageSourceUpdated | Output() |     File or null      | EventEmitter<File or null>   | Emits image source changing event  |
+|      Property      |    Bind     |          Type          |           Default            | Description                        |
+|:------------------:|:-----------:|:----------------------:|:----------------------------:|:-----------------------------------|
+|    imageSource     |  `Input()`  | `FileReaderResultType` |             null             | Image source                       |
+| imageSourceUpdated | `Output()`  |      File or null      | EventEmitter<File or null>   | Emits image source changing event  |
+
 <br/>
 <br/>
 Methods:
