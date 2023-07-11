@@ -95,7 +95,8 @@ Properties and events:
 |:-------------------|:----------:|:------:| :-----: |:------------------------------------|
 | imageSource        | `Input() ` | string |    -    | Image source (string or byte array) |
 | imageSourceUpdated |  Output()  |  File  |    -    | Emits image source changing event   |
-
+<br/>
+<br/>
 Methods:
 
 | function           | bind |  type  | default | description                         |
@@ -106,13 +107,19 @@ Methods:
 
 ## Usage
 
-add the `@mindarchitect-ngx-libraries/ngx-avatar-lib` element to your template:
+Add the `@mindarchitect-ngx-libraries/ngx-avatar-lib` element to your template:
 
 ```html
-<ngx-avatar imageSource="{{ImageSource}}" (imageSourceUpdated)="imageSourceUpdated($event)"></ngx-avatar>
+<ngx-avatar #avatar imageSource="{{ImageSource}}" (imageSourceUpdated)="imageSourceUpdated($event)"></ngx-avatar>
 ```
 
 This will display avatar image using image source property binding and defining image source update event handler.
+
+You can use @ViewChild annotation to access component directly from consumer code:
+
+```js
+@ViewChild('avatar') ngxAvatarLibComponent!: NgxAvatarLibComponent;
+```
 
 ---
 
