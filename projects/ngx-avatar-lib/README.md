@@ -16,10 +16,26 @@
 - [Support](#support)
 - [License](#license)
 
+
 ## Components
 
 - `<ngx-avatar></ngx-avatar>` is designed and developed to select and display user avatar and bind avatar image change event handler.
- 
+
+- Avatar component:
+    <p>  
+        <img alt="ngx-libraries logo" height="256px" width="256px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/1.png">
+    </p>
+
+- Avatar update mode
+    <p>  
+        <img alt="ngx-libraries logo" height="256px" width="256px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/2.png">
+    </p>
+
+- Avatar default image
+    <p>  
+        <img alt="ngx-libraries logo" height="256px" width="256px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/3.png">
+    </p>
+
 ---
 
 ## Dependencies
@@ -91,25 +107,25 @@ export class ExampleNgxAvatarLibConfigurationProvider implements NgxAvatarLibCon
 
 Types:
 
-|          Type           |                                  Description                                  |
-|:-----------------------:|:-----------------------------------------------------------------------------:|
-| `FileReaderResultType`  | `File reader result helper intersection type (string or ArrayBuffer or null)` |
+|          Type           |                                 Description                                  |
+|:-----------------------:|:----------------------------------------------------------------------------:|
+| FileReaderResultType    | File reader result helper intersection type (string or ArrayBuffer or null)  |
 <br/>
 <br/>
 
 Properties and events:
 
-|       Property       |    Bind    |          Type          |           Default            | Description                         |
-|:--------------------:|:----------:|:----------------------:|:----------------------------:|:------------------------------------|
-|    `imageSource`     | `Input()`  | `FileReaderResultType` |             `null`           | `Image source`                      |
-| `imageSourceUpdated` | `Output()` |     `File or null`     | `EventEmitter<File or null>` | `Emits image source changing event` |
+|      Property      |   Bind   |         Type          |           Default            | Description                        |
+|:------------------:|:--------:|:---------------------:|:----------------------------:|:-----------------------------------|
+|    imageSource     | Input()  | FileReaderResultType  |             null             | Image source                       |
+| imageSourceUpdated | Output() |     File or null      | EventEmitter<File or null>   | Emits image source changing event  |
 <br/>
 <br/>
 Methods:
 
-| Method                                         | Description                                                                   |
-|:-----------------------------------------------|:------------------------------------------------------------------------------|
-| `setImage(imageSource: FileReaderResultType)`  | `Sets avatar image source. If image source is null or empty, default is used` |
+| Method                                       | Description                                                                  |
+|:---------------------------------------------|:-----------------------------------------------------------------------------|
+| setImage(imageSource: FileReaderResultType)  | Sets avatar image source. If image source is null or empty, default is used  |
 
 ---
 
