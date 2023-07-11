@@ -95,8 +95,7 @@ Properties and events:
 |:-------------------|:----------:|:------:| :-----: |:------------------------------------|
 | imageSource        | `Input() ` | string |    -    | Image source (string or byte array) |
 | imageSourceUpdated |  Output()  |  File  |    -    | Emits image source changing event   |
-\
-\
+
 Methods:
 
 | function           | bind |  type  | default | description                         |
