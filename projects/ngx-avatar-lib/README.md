@@ -23,17 +23,17 @@
 
 - Avatar component:
     <p>  
-        <img alt="ngx-avatar-lib" height="260px" width="266px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/images/1.png">
+        <img alt="ngx-avatar-lib" height="266px" width="260px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/images/1.png">
     </p>
 
 - Avatar update mode
     <p>  
-        <img alt="ngx-avatar-lib" height="260px" width="266px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/images/2.png">
+        <img alt="ngx-avatar-lib" height="266px" width="260px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/images/2.png">
     </p>
 
 - Avatar default image
     <p>  
-        <img alt="ngx-avatar-lib" height="260px" width="266px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/images/3.png">
+        <img alt="ngx-avatar-lib" height="266px" width="260px" style="text-align: center;" src="https://github.com/mindarchitect/ngx-libraries/blob/main/assets/ngx-avatar-lib/images/3.png">
     </p>
 
 ---
