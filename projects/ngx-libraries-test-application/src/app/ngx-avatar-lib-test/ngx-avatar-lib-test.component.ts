@@ -20,6 +20,5 @@ export class NgxAvatarLibTestComponent {
     }
 
     imageSourceUpdated(event: any) {
-        this.ngxAvatarLibComponent.setImage(null);
     }
 }
