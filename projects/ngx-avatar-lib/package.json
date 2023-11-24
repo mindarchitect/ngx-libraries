@@ -1,13 +1,13 @@
 {
   "name": "@mindarchitect-ngx-libraries/ngx-avatar-lib",
-  "version": "0.0.27",
+  "version": "17.0.1",
   "peerDependencies": {
-    "@angular/common": "^16.0.3",
-    "@angular/core": "^16.0.3",
-    "@angular/forms": "^16.0.3",
-    "bootstrap": "^5.2.3"
+    "@angular/common": "^17.0.4",
+    "@angular/core": "^17.0.4",
+    "@angular/forms": "^17.0.4",
+    "bootstrap": "^5.3"
   },
   "dependencies": {
-    "tslib": "^2.5.2"
+    "tslib": "^2.6.2"
   }
 }
