@@ -39,7 +39,7 @@
 ---
 
 ## Dependencies
-* [Angular](https://angular.io) developed and tested with `16.x, 17.x`
+* Developed and tested with [Angular](https://angular.io) `16.x, 17.x`
 
 ---
 
